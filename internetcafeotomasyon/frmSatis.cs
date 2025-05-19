@@ -1,8 +1,8 @@
 namespace internetcafeotomasyon
 {
-    public partial class Form1 : Form
+    public partial class frmSatis : Form
     {
-        public Form1()
+        public frmSatis()
         {
             InitializeComponent();
         }
