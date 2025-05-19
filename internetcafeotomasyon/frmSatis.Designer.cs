@@ -31,6 +31,22 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSatis));
             button1 = new Button();
+            contextMenuStrip2 = new ContextMenuStrip(components);
+            yoneticiCagirToolStripMenuItem = new ToolStripMenuItem();
+            suresizMasaAcmaIstegiToolStripMenuItem = new ToolStripMenuItem();
+            sureliMasaAcmaItegiToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
+            toolStripMenuItem4 = new ToolStripMenuItem();
+            toolStripMenuItem5 = new ToolStripMenuItem();
+            toolStripMenuItem6 = new ToolStripMenuItem();
+            toolStripMenuItem7 = new ToolStripMenuItem();
+            toolStripMenuItem8 = new ToolStripMenuItem();
+            toolStripMenuItem9 = new ToolStripMenuItem();
+            toolStripMenuItem10 = new ToolStripMenuItem();
+            toolStripMenuItem11 = new ToolStripMenuItem();
+            toolStripMenuItem12 = new ToolStripMenuItem();
+            degistirmaİstegiGonderToolStripMenuItem = new ToolStripMenuItem();
             ımageList1 = new ImageList(components);
             button2 = new Button();
             button3 = new Button();
@@ -59,6 +75,18 @@
             Aciklama = new ColumnHeader();
             Tarih = new ColumnHeader();
             dataGridView1 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            Masa_ID = new DataGridViewTextBoxColumn();
+            _Masa = new DataGridViewTextBoxColumn();
+            AcılısTuru = new DataGridViewTextBoxColumn();
+            SaatUcreti = new DataGridViewComboBoxColumn();
+            BaslamaSaati = new DataGridViewTextBoxColumn();
+            BitisSaati = new DataGridViewTextBoxColumn();
+            Sure = new DataGridViewTextBoxColumn();
+            Tutar = new DataGridViewTextBoxColumn();
+            _Tarih = new DataGridViewTextBoxColumn();
+            Hesapla = new DataGridViewButtonColumn();
+            MasaKapat = new DataGridViewButtonColumn();
             comboBox1 = new ComboBox();
             label1 = new Label();
             panel1 = new Panel();
@@ -73,27 +101,11 @@
             radioButton4 = new RadioButton();
             radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            button21 = new Button();
-            contextMenuStrip2 = new ContextMenuStrip(components);
-            yoneticiCagirToolStripMenuItem = new ToolStripMenuItem();
-            suresizMasaAcmaIstegiToolStripMenuItem = new ToolStripMenuItem();
-            sureliMasaAcmaItegiToolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItem2 = new ToolStripMenuItem();
-            toolStripMenuItem3 = new ToolStripMenuItem();
-            toolStripMenuItem4 = new ToolStripMenuItem();
-            toolStripMenuItem5 = new ToolStripMenuItem();
-            toolStripMenuItem6 = new ToolStripMenuItem();
-            toolStripMenuItem7 = new ToolStripMenuItem();
-            toolStripMenuItem8 = new ToolStripMenuItem();
-            toolStripMenuItem9 = new ToolStripMenuItem();
-            toolStripMenuItem10 = new ToolStripMenuItem();
-            toolStripMenuItem11 = new ToolStripMenuItem();
-            toolStripMenuItem12 = new ToolStripMenuItem();
-            degistirmaİstegiGonderToolStripMenuItem = new ToolStripMenuItem();
+            radioButtonSuresiz = new RadioButton();
+            btnMasaAc = new Button();
+            contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
-            contextMenuStrip2.SuspendLayout();
             SuspendLayout();
             // 
             // button1
@@ -104,13 +116,112 @@
             button1.ImageAlign = ContentAlignment.TopLeft;
             button1.ImageKey = "pc-icon-32232.png";
             button1.ImageList = ımageList1;
-            button1.Location = new Point(12, 0);
+            button1.Location = new Point(12, 5);
             button1.Name = "button1";
             button1.Size = new Size(127, 100);
             button1.TabIndex = 0;
             button1.Text = "MASA-1";
             button1.TextAlign = ContentAlignment.BottomCenter;
             button1.UseVisualStyleBackColor = true;
+            button1.MouseDown += SecileneGore;
+            // 
+            // contextMenuStrip2
+            // 
+            contextMenuStrip2.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { yoneticiCagirToolStripMenuItem, suresizMasaAcmaIstegiToolStripMenuItem, sureliMasaAcmaItegiToolStripMenuItem, degistirmaİstegiGonderToolStripMenuItem });
+            contextMenuStrip2.Name = "contextMenuStrip2";
+            contextMenuStrip2.Size = new Size(246, 100);
+            // 
+            // yoneticiCagirToolStripMenuItem
+            // 
+            yoneticiCagirToolStripMenuItem.Name = "yoneticiCagirToolStripMenuItem";
+            yoneticiCagirToolStripMenuItem.Size = new Size(245, 24);
+            yoneticiCagirToolStripMenuItem.Text = "Yonetici Cagir";
+            // 
+            // suresizMasaAcmaIstegiToolStripMenuItem
+            // 
+            suresizMasaAcmaIstegiToolStripMenuItem.Name = "suresizMasaAcmaIstegiToolStripMenuItem";
+            suresizMasaAcmaIstegiToolStripMenuItem.Size = new Size(245, 24);
+            suresizMasaAcmaIstegiToolStripMenuItem.Text = "Suresiz Masa Acma Istegi";
+            // 
+            // sureliMasaAcmaItegiToolStripMenuItem
+            // 
+            sureliMasaAcmaItegiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5, toolStripMenuItem6, toolStripMenuItem7, toolStripMenuItem8, toolStripMenuItem9, toolStripMenuItem10, toolStripMenuItem11, toolStripMenuItem12 });
+            sureliMasaAcmaItegiToolStripMenuItem.Name = "sureliMasaAcmaItegiToolStripMenuItem";
+            sureliMasaAcmaItegiToolStripMenuItem.Size = new Size(245, 24);
+            sureliMasaAcmaItegiToolStripMenuItem.Text = "Sureli Masa Acma Itegi";
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(116, 26);
+            toolStripMenuItem2.Text = "30";
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(116, 26);
+            toolStripMenuItem3.Text = "45";
+            // 
+            // toolStripMenuItem4
+            // 
+            toolStripMenuItem4.Name = "toolStripMenuItem4";
+            toolStripMenuItem4.Size = new Size(116, 26);
+            toolStripMenuItem4.Text = "60";
+            // 
+            // toolStripMenuItem5
+            // 
+            toolStripMenuItem5.Name = "toolStripMenuItem5";
+            toolStripMenuItem5.Size = new Size(116, 26);
+            toolStripMenuItem5.Text = "75";
+            // 
+            // toolStripMenuItem6
+            // 
+            toolStripMenuItem6.Name = "toolStripMenuItem6";
+            toolStripMenuItem6.Size = new Size(116, 26);
+            toolStripMenuItem6.Text = "90";
+            // 
+            // toolStripMenuItem7
+            // 
+            toolStripMenuItem7.Name = "toolStripMenuItem7";
+            toolStripMenuItem7.Size = new Size(116, 26);
+            toolStripMenuItem7.Text = "105";
+            // 
+            // toolStripMenuItem8
+            // 
+            toolStripMenuItem8.Name = "toolStripMenuItem8";
+            toolStripMenuItem8.Size = new Size(116, 26);
+            toolStripMenuItem8.Text = "120";
+            // 
+            // toolStripMenuItem9
+            // 
+            toolStripMenuItem9.Name = "toolStripMenuItem9";
+            toolStripMenuItem9.Size = new Size(116, 26);
+            toolStripMenuItem9.Text = "135";
+            // 
+            // toolStripMenuItem10
+            // 
+            toolStripMenuItem10.Name = "toolStripMenuItem10";
+            toolStripMenuItem10.Size = new Size(116, 26);
+            toolStripMenuItem10.Text = "150";
+            // 
+            // toolStripMenuItem11
+            // 
+            toolStripMenuItem11.Name = "toolStripMenuItem11";
+            toolStripMenuItem11.Size = new Size(116, 26);
+            toolStripMenuItem11.Text = "180";
+            // 
+            // toolStripMenuItem12
+            // 
+            toolStripMenuItem12.Name = "toolStripMenuItem12";
+            toolStripMenuItem12.Size = new Size(116, 26);
+            toolStripMenuItem12.Text = "200";
+            // 
+            // degistirmaİstegiGonderToolStripMenuItem
+            // 
+            degistirmaİstegiGonderToolStripMenuItem.Name = "degistirmaİstegiGonderToolStripMenuItem";
+            degistirmaİstegiGonderToolStripMenuItem.Size = new Size(245, 24);
+            degistirmaİstegiGonderToolStripMenuItem.Text = "Degistirma istegi Gonder";
             // 
             // ımageList1
             // 
@@ -127,13 +238,14 @@
             button2.ImageAlign = ContentAlignment.TopLeft;
             button2.ImageKey = "pc-icon-32232.png";
             button2.ImageList = ımageList1;
-            button2.Location = new Point(145, 0);
+            button2.Location = new Point(145, 5);
             button2.Name = "button2";
             button2.Size = new Size(127, 100);
             button2.TabIndex = 1;
             button2.Text = "MASA-2";
             button2.TextAlign = ContentAlignment.BottomCenter;
             button2.UseVisualStyleBackColor = true;
+            button2.MouseDown += SecileneGore;
             // 
             // button3
             // 
@@ -143,13 +255,14 @@
             button3.ImageAlign = ContentAlignment.TopLeft;
             button3.ImageKey = "pc-icon-32232.png";
             button3.ImageList = ımageList1;
-            button3.Location = new Point(278, 0);
+            button3.Location = new Point(278, 5);
             button3.Name = "button3";
             button3.Size = new Size(127, 100);
             button3.TabIndex = 2;
             button3.Text = "MASA-3";
             button3.TextAlign = ContentAlignment.BottomCenter;
             button3.UseVisualStyleBackColor = true;
+            button3.MouseDown += SecileneGore;
             // 
             // button4
             // 
@@ -159,13 +272,14 @@
             button4.ImageAlign = ContentAlignment.TopLeft;
             button4.ImageKey = "pc-icon-32232.png";
             button4.ImageList = ımageList1;
-            button4.Location = new Point(411, 0);
+            button4.Location = new Point(411, 5);
             button4.Name = "button4";
             button4.Size = new Size(127, 100);
             button4.TabIndex = 3;
             button4.Text = "MASA-4";
             button4.TextAlign = ContentAlignment.BottomCenter;
             button4.UseVisualStyleBackColor = true;
+            button4.MouseDown += SecileneGore;
             // 
             // button5
             // 
@@ -175,13 +289,14 @@
             button5.ImageAlign = ContentAlignment.TopLeft;
             button5.ImageKey = "pc-icon-32232.png";
             button5.ImageList = ımageList1;
-            button5.Location = new Point(943, 0);
+            button5.Location = new Point(943, 5);
             button5.Name = "button5";
             button5.Size = new Size(127, 100);
             button5.TabIndex = 4;
             button5.Text = "MASA-8";
             button5.TextAlign = ContentAlignment.BottomCenter;
             button5.UseVisualStyleBackColor = true;
+            button5.MouseDown += SecileneGore;
             // 
             // button6
             // 
@@ -191,13 +306,14 @@
             button6.ImageAlign = ContentAlignment.TopLeft;
             button6.ImageKey = "pc-icon-32232.png";
             button6.ImageList = ımageList1;
-            button6.Location = new Point(810, 0);
+            button6.Location = new Point(810, 5);
             button6.Name = "button6";
             button6.Size = new Size(127, 100);
             button6.TabIndex = 4;
             button6.Text = "MASA-7";
             button6.TextAlign = ContentAlignment.BottomCenter;
             button6.UseVisualStyleBackColor = true;
+            button6.MouseDown += SecileneGore;
             // 
             // button7
             // 
@@ -207,13 +323,14 @@
             button7.ImageAlign = ContentAlignment.TopLeft;
             button7.ImageKey = "pc-icon-32232.png";
             button7.ImageList = ımageList1;
-            button7.Location = new Point(677, 0);
+            button7.Location = new Point(677, 5);
             button7.Name = "button7";
             button7.Size = new Size(127, 100);
             button7.TabIndex = 4;
             button7.Text = "MASA-6";
             button7.TextAlign = ContentAlignment.BottomCenter;
             button7.UseVisualStyleBackColor = true;
+            button7.MouseDown += SecileneGore;
             // 
             // button8
             // 
@@ -223,13 +340,14 @@
             button8.ImageAlign = ContentAlignment.TopLeft;
             button8.ImageKey = "pc-icon-32232.png";
             button8.ImageList = ımageList1;
-            button8.Location = new Point(544, 0);
+            button8.Location = new Point(544, 5);
             button8.Name = "button8";
             button8.Size = new Size(127, 100);
             button8.TabIndex = 4;
             button8.Text = "MASA-5";
             button8.TextAlign = ContentAlignment.BottomCenter;
             button8.UseVisualStyleBackColor = true;
+            button8.MouseDown += SecileneGore;
             // 
             // button9
             // 
@@ -239,13 +357,14 @@
             button9.ImageAlign = ContentAlignment.TopLeft;
             button9.ImageKey = "pc-icon-32232.png";
             button9.ImageList = ımageList1;
-            button9.Location = new Point(1076, 0);
+            button9.Location = new Point(1076, 5);
             button9.Name = "button9";
             button9.Size = new Size(127, 100);
             button9.TabIndex = 5;
             button9.Text = "MASA-9";
             button9.TextAlign = ContentAlignment.BottomCenter;
             button9.UseVisualStyleBackColor = true;
+            button9.MouseDown += SecileneGore;
             // 
             // button10
             // 
@@ -255,13 +374,14 @@
             button10.ImageAlign = ContentAlignment.TopLeft;
             button10.ImageKey = "pc-icon-32232.png";
             button10.ImageList = ımageList1;
-            button10.Location = new Point(1209, 0);
+            button10.Location = new Point(1209, 5);
             button10.Name = "button10";
             button10.Size = new Size(127, 100);
             button10.TabIndex = 6;
             button10.Text = "MASA-10";
             button10.TextAlign = ContentAlignment.BottomCenter;
             button10.UseVisualStyleBackColor = true;
+            button10.MouseDown += SecileneGore;
             // 
             // button11
             // 
@@ -271,13 +391,14 @@
             button11.ImageAlign = ContentAlignment.TopLeft;
             button11.ImageKey = "pc-icon-32232.png";
             button11.ImageList = ımageList1;
-            button11.Location = new Point(1, 523);
+            button11.Location = new Point(12, 528);
             button11.Name = "button11";
             button11.Size = new Size(127, 104);
             button11.TabIndex = 0;
             button11.Text = "MASA-11";
             button11.TextAlign = ContentAlignment.BottomCenter;
             button11.UseVisualStyleBackColor = true;
+            button11.MouseDown += SecileneGore;
             // 
             // button12
             // 
@@ -287,13 +408,14 @@
             button12.ImageAlign = ContentAlignment.TopLeft;
             button12.ImageKey = "pc-icon-32232.png";
             button12.ImageList = ımageList1;
-            button12.Location = new Point(134, 523);
+            button12.Location = new Point(134, 528);
             button12.Name = "button12";
             button12.Size = new Size(127, 104);
             button12.TabIndex = 1;
             button12.Text = "MASA-12";
             button12.TextAlign = ContentAlignment.BottomCenter;
             button12.UseVisualStyleBackColor = true;
+            button12.MouseDown += SecileneGore;
             // 
             // button13
             // 
@@ -303,13 +425,14 @@
             button13.ImageAlign = ContentAlignment.TopLeft;
             button13.ImageKey = "pc-icon-32232.png";
             button13.ImageList = ımageList1;
-            button13.Location = new Point(267, 523);
+            button13.Location = new Point(267, 528);
             button13.Name = "button13";
             button13.Size = new Size(127, 104);
             button13.TabIndex = 2;
             button13.Text = "MASA-13";
             button13.TextAlign = ContentAlignment.BottomCenter;
             button13.UseVisualStyleBackColor = true;
+            button13.MouseDown += SecileneGore;
             // 
             // button14
             // 
@@ -319,13 +442,14 @@
             button14.ImageAlign = ContentAlignment.TopLeft;
             button14.ImageKey = "pc-icon-32232.png";
             button14.ImageList = ımageList1;
-            button14.Location = new Point(400, 523);
+            button14.Location = new Point(400, 528);
             button14.Name = "button14";
             button14.Size = new Size(127, 104);
             button14.TabIndex = 3;
             button14.Text = "MASA-14";
             button14.TextAlign = ContentAlignment.BottomCenter;
             button14.UseVisualStyleBackColor = true;
+            button14.MouseDown += SecileneGore;
             // 
             // button15
             // 
@@ -335,13 +459,14 @@
             button15.ImageAlign = ContentAlignment.TopLeft;
             button15.ImageKey = "pc-icon-32232.png";
             button15.ImageList = ımageList1;
-            button15.Location = new Point(932, 523);
+            button15.Location = new Point(932, 528);
             button15.Name = "button15";
             button15.Size = new Size(127, 104);
             button15.TabIndex = 4;
             button15.Text = "MASA-18";
             button15.TextAlign = ContentAlignment.BottomCenter;
             button15.UseVisualStyleBackColor = true;
+            button15.MouseDown += SecileneGore;
             // 
             // button16
             // 
@@ -351,13 +476,14 @@
             button16.ImageAlign = ContentAlignment.TopLeft;
             button16.ImageKey = "pc-icon-32232.png";
             button16.ImageList = ımageList1;
-            button16.Location = new Point(666, 523);
+            button16.Location = new Point(666, 528);
             button16.Name = "button16";
             button16.Size = new Size(127, 104);
             button16.TabIndex = 4;
             button16.Text = "MASA-16";
             button16.TextAlign = ContentAlignment.BottomCenter;
             button16.UseVisualStyleBackColor = true;
+            button16.MouseDown += SecileneGore;
             // 
             // button17
             // 
@@ -367,13 +493,14 @@
             button17.ImageAlign = ContentAlignment.TopLeft;
             button17.ImageKey = "pc-icon-32232.png";
             button17.ImageList = ımageList1;
-            button17.Location = new Point(799, 523);
+            button17.Location = new Point(799, 528);
             button17.Name = "button17";
             button17.Size = new Size(127, 104);
             button17.TabIndex = 4;
             button17.Text = "MASA-17";
             button17.TextAlign = ContentAlignment.BottomCenter;
             button17.UseVisualStyleBackColor = true;
+            button17.MouseDown += SecileneGore;
             // 
             // button18
             // 
@@ -383,13 +510,14 @@
             button18.ImageAlign = ContentAlignment.TopLeft;
             button18.ImageKey = "pc-icon-32232.png";
             button18.ImageList = ımageList1;
-            button18.Location = new Point(533, 523);
+            button18.Location = new Point(533, 528);
             button18.Name = "button18";
             button18.Size = new Size(127, 104);
             button18.TabIndex = 4;
             button18.Text = "MASA-15";
             button18.TextAlign = ContentAlignment.BottomCenter;
             button18.UseVisualStyleBackColor = true;
+            button18.MouseDown += SecileneGore;
             // 
             // button19
             // 
@@ -399,13 +527,14 @@
             button19.ImageAlign = ContentAlignment.TopLeft;
             button19.ImageKey = "pc-icon-32232.png";
             button19.ImageList = ımageList1;
-            button19.Location = new Point(1065, 523);
+            button19.Location = new Point(1065, 528);
             button19.Name = "button19";
             button19.Size = new Size(127, 104);
             button19.TabIndex = 5;
             button19.Text = "MASA-19";
             button19.TextAlign = ContentAlignment.BottomCenter;
             button19.UseVisualStyleBackColor = true;
+            button19.MouseDown += SecileneGore;
             // 
             // button20
             // 
@@ -415,18 +544,19 @@
             button20.ImageAlign = ContentAlignment.TopLeft;
             button20.ImageKey = "pc-icon-32232.png";
             button20.ImageList = ımageList1;
-            button20.Location = new Point(1198, 523);
+            button20.Location = new Point(1198, 528);
             button20.Name = "button20";
             button20.Size = new Size(127, 104);
             button20.TabIndex = 6;
             button20.Text = "MASA-20";
             button20.TextAlign = ContentAlignment.BottomCenter;
             button20.UseVisualStyleBackColor = true;
+            button20.MouseDown += SecileneGore;
             // 
             // listView1
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { IstekID, MasaID, Masa, IstekTuru, Aciklama, Tarih });
-            listView1.Location = new Point(12, 106);
+            listView1.Location = new Point(12, 111);
             listView1.Name = "listView1";
             listView1.Size = new Size(1150, 192);
             listView1.TabIndex = 7;
@@ -459,17 +589,97 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 304);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Masa_ID, _Masa, AcılısTuru, SaatUcreti, BaslamaSaati, BitisSaati, Sure, Tutar, _Tarih, Hesapla, MasaKapat });
+            dataGridView1.Location = new Point(12, 309);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(1150, 204);
             dataGridView1.TabIndex = 8;
             // 
+            // ID
+            // 
+            ID.HeaderText = "ID";
+            ID.MinimumWidth = 6;
+            ID.Name = "ID";
+            // 
+            // Masa_ID
+            // 
+            Masa_ID.HeaderText = "Masa ID";
+            Masa_ID.MinimumWidth = 6;
+            Masa_ID.Name = "Masa_ID";
+            // 
+            // _Masa
+            // 
+            _Masa.HeaderText = "Masa";
+            _Masa.MinimumWidth = 6;
+            _Masa.Name = "_Masa";
+            // 
+            // AcılısTuru
+            // 
+            AcılısTuru.HeaderText = "Açılış Türü";
+            AcılısTuru.MinimumWidth = 6;
+            AcılısTuru.Name = "AcılısTuru";
+            // 
+            // SaatUcreti
+            // 
+            SaatUcreti.HeaderText = "Saat Ücreti";
+            SaatUcreti.MinimumWidth = 6;
+            SaatUcreti.Name = "SaatUcreti";
+            // 
+            // BaslamaSaati
+            // 
+            BaslamaSaati.HeaderText = "Başlama Saati";
+            BaslamaSaati.MinimumWidth = 6;
+            BaslamaSaati.Name = "BaslamaSaati";
+            // 
+            // BitisSaati
+            // 
+            BitisSaati.HeaderText = "Bitiş Saati";
+            BitisSaati.MinimumWidth = 6;
+            BitisSaati.Name = "BitisSaati";
+            // 
+            // Sure
+            // 
+            Sure.HeaderText = "Süre";
+            Sure.MinimumWidth = 6;
+            Sure.Name = "Sure";
+            // 
+            // Tutar
+            // 
+            Tutar.HeaderText = "Tutar";
+            Tutar.MinimumWidth = 6;
+            Tutar.Name = "Tutar";
+            // 
+            // _Tarih
+            // 
+            _Tarih.HeaderText = "Tarih";
+            _Tarih.MinimumWidth = 6;
+            _Tarih.Name = "_Tarih";
+            // 
+            // Hesapla
+            // 
+            Hesapla.HeaderText = "Hesapla";
+            Hesapla.MinimumWidth = 6;
+            Hesapla.Name = "Hesapla";
+            Hesapla.Text = "Hesapla";
+            Hesapla.ToolTipText = "Hesaplama yapar";
+            Hesapla.UseColumnTextForButtonValue = true;
+            // 
+            // MasaKapat
+            // 
+            MasaKapat.HeaderText = "Masa Kapat";
+            MasaKapat.MinimumWidth = 6;
+            MasaKapat.Name = "MasaKapat";
+            MasaKapat.Text = "Masa Kapat";
+            MasaKapat.ToolTipText = "Masayı kapatır";
+            MasaKapat.UseColumnTextForButtonValue = true;
+            // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(1176, 129);
+            comboBox1.Location = new Point(1176, 134);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(156, 28);
             comboBox1.TabIndex = 9;
@@ -477,7 +687,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(1176, 106);
+            label1.Location = new Point(1176, 111);
             label1.Name = "label1";
             label1.Size = new Size(81, 20);
             label1.TabIndex = 10;
@@ -496,8 +706,8 @@
             panel1.Controls.Add(radioButton4);
             panel1.Controls.Add(radioButton3);
             panel1.Controls.Add(radioButton2);
-            panel1.Controls.Add(radioButton1);
-            panel1.Location = new Point(1176, 163);
+            panel1.Controls.Add(radioButtonSuresiz);
+            panel1.Location = new Point(1176, 168);
             panel1.Name = "panel1";
             panel1.Size = new Size(151, 198);
             panel1.TabIndex = 11;
@@ -623,130 +833,33 @@
             radioButton2.Text = "30";
             radioButton2.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioButtonSuresiz
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(5, 12);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(76, 24);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Suresiz";
-            radioButton1.UseVisualStyleBackColor = true;
+            radioButtonSuresiz.AutoSize = true;
+            radioButtonSuresiz.Location = new Point(5, 12);
+            radioButtonSuresiz.Name = "radioButtonSuresiz";
+            radioButtonSuresiz.Size = new Size(76, 24);
+            radioButtonSuresiz.TabIndex = 0;
+            radioButtonSuresiz.TabStop = true;
+            radioButtonSuresiz.Text = "Suresiz";
+            radioButtonSuresiz.UseVisualStyleBackColor = true;
             // 
-            // button21
+            // btnMasaAc
             // 
-            button21.Location = new Point(1176, 380);
-            button21.Name = "button21";
-            button21.Size = new Size(151, 128);
-            button21.TabIndex = 12;
-            button21.Text = "Masa Ac";
-            button21.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip2
-            // 
-            contextMenuStrip2.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip2.Items.AddRange(new ToolStripItem[] { yoneticiCagirToolStripMenuItem, suresizMasaAcmaIstegiToolStripMenuItem, sureliMasaAcmaItegiToolStripMenuItem, degistirmaİstegiGonderToolStripMenuItem });
-            contextMenuStrip2.Name = "contextMenuStrip2";
-            contextMenuStrip2.Size = new Size(246, 100);
-            // 
-            // yoneticiCagirToolStripMenuItem
-            // 
-            yoneticiCagirToolStripMenuItem.Name = "yoneticiCagirToolStripMenuItem";
-            yoneticiCagirToolStripMenuItem.Size = new Size(245, 24);
-            yoneticiCagirToolStripMenuItem.Text = "Yonetici Cagir";
-            // 
-            // suresizMasaAcmaIstegiToolStripMenuItem
-            // 
-            suresizMasaAcmaIstegiToolStripMenuItem.Name = "suresizMasaAcmaIstegiToolStripMenuItem";
-            suresizMasaAcmaIstegiToolStripMenuItem.Size = new Size(245, 24);
-            suresizMasaAcmaIstegiToolStripMenuItem.Text = "Suresiz Masa Acma Istegi";
-            // 
-            // sureliMasaAcmaItegiToolStripMenuItem
-            // 
-            sureliMasaAcmaItegiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5, toolStripMenuItem6, toolStripMenuItem7, toolStripMenuItem8, toolStripMenuItem9, toolStripMenuItem10, toolStripMenuItem11, toolStripMenuItem12 });
-            sureliMasaAcmaItegiToolStripMenuItem.Name = "sureliMasaAcmaItegiToolStripMenuItem";
-            sureliMasaAcmaItegiToolStripMenuItem.Size = new Size(245, 24);
-            sureliMasaAcmaItegiToolStripMenuItem.Text = "Sureli Masa Acma Itegi";
-            // 
-            // toolStripMenuItem2
-            // 
-            toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(116, 26);
-            toolStripMenuItem2.Text = "30";
-            // 
-            // toolStripMenuItem3
-            // 
-            toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(116, 26);
-            toolStripMenuItem3.Text = "45";
-            // 
-            // toolStripMenuItem4
-            // 
-            toolStripMenuItem4.Name = "toolStripMenuItem4";
-            toolStripMenuItem4.Size = new Size(116, 26);
-            toolStripMenuItem4.Text = "60";
-            // 
-            // toolStripMenuItem5
-            // 
-            toolStripMenuItem5.Name = "toolStripMenuItem5";
-            toolStripMenuItem5.Size = new Size(116, 26);
-            toolStripMenuItem5.Text = "75";
-            // 
-            // toolStripMenuItem6
-            // 
-            toolStripMenuItem6.Name = "toolStripMenuItem6";
-            toolStripMenuItem6.Size = new Size(116, 26);
-            toolStripMenuItem6.Text = "90";
-            // 
-            // toolStripMenuItem7
-            // 
-            toolStripMenuItem7.Name = "toolStripMenuItem7";
-            toolStripMenuItem7.Size = new Size(116, 26);
-            toolStripMenuItem7.Text = "105";
-            // 
-            // toolStripMenuItem8
-            // 
-            toolStripMenuItem8.Name = "toolStripMenuItem8";
-            toolStripMenuItem8.Size = new Size(116, 26);
-            toolStripMenuItem8.Text = "120";
-            // 
-            // toolStripMenuItem9
-            // 
-            toolStripMenuItem9.Name = "toolStripMenuItem9";
-            toolStripMenuItem9.Size = new Size(116, 26);
-            toolStripMenuItem9.Text = "135";
-            // 
-            // toolStripMenuItem10
-            // 
-            toolStripMenuItem10.Name = "toolStripMenuItem10";
-            toolStripMenuItem10.Size = new Size(116, 26);
-            toolStripMenuItem10.Text = "150";
-            // 
-            // toolStripMenuItem11
-            // 
-            toolStripMenuItem11.Name = "toolStripMenuItem11";
-            toolStripMenuItem11.Size = new Size(116, 26);
-            toolStripMenuItem11.Text = "180";
-            // 
-            // toolStripMenuItem12
-            // 
-            toolStripMenuItem12.Name = "toolStripMenuItem12";
-            toolStripMenuItem12.Size = new Size(116, 26);
-            toolStripMenuItem12.Text = "200";
-            // 
-            // degistirmaİstegiGonderToolStripMenuItem
-            // 
-            degistirmaİstegiGonderToolStripMenuItem.Name = "degistirmaİstegiGonderToolStripMenuItem";
-            degistirmaİstegiGonderToolStripMenuItem.Size = new Size(245, 24);
-            degistirmaİstegiGonderToolStripMenuItem.Text = "Degistirma istegi Gonder";
+            btnMasaAc.Location = new Point(1176, 385);
+            btnMasaAc.Name = "btnMasaAc";
+            btnMasaAc.Size = new Size(151, 128);
+            btnMasaAc.TabIndex = 12;
+            btnMasaAc.Text = "Masa Ac";
+            btnMasaAc.UseVisualStyleBackColor = true;
+            btnMasaAc.Click += button21_Click;
             // 
             // frmSatis
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1349, 632);
-            Controls.Add(button21);
+            Controls.Add(btnMasaAc);
             Controls.Add(panel1);
             Controls.Add(label1);
             Controls.Add(comboBox1);
@@ -775,10 +888,12 @@
             Name = "frmSatis";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Satis Sayfasi";
+            Load += frmSatis_Load;
+            MouseDown += SecileneGore;
+            contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            contextMenuStrip2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -817,8 +932,8 @@
         private RadioButton radioButton4;
         private RadioButton radioButton3;
         private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private Button button21;
+        private RadioButton radioButtonSuresiz;
+        private Button btnMasaAc;
         private RadioButton radioButton12;
         private RadioButton radioButton11;
         private RadioButton radioButton10;
@@ -846,5 +961,17 @@
         private ToolStripMenuItem toolStripMenuItem11;
         private ToolStripMenuItem toolStripMenuItem12;
         private ToolStripMenuItem degistirmaİstegiGonderToolStripMenuItem;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Masa_ID;
+        private DataGridViewTextBoxColumn _Masa;
+        private DataGridViewTextBoxColumn AcılısTuru;
+        private DataGridViewComboBoxColumn SaatUcreti;
+        private DataGridViewTextBoxColumn BaslamaSaati;
+        private DataGridViewTextBoxColumn BitisSaati;
+        private DataGridViewTextBoxColumn Sure;
+        private DataGridViewTextBoxColumn Tutar;
+        private DataGridViewTextBoxColumn _Tarih;
+        private DataGridViewButtonColumn Hesapla;
+        private DataGridViewButtonColumn MasaKapat;
     }
 }
