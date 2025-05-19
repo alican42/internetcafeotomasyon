@@ -87,7 +87,7 @@
             _Tarih = new DataGridViewTextBoxColumn();
             Hesapla = new DataGridViewButtonColumn();
             MasaKapat = new DataGridViewButtonColumn();
-            comboBox1 = new ComboBox();
+            comboBosMasalar = new ComboBox();
             label1 = new Label();
             panel1 = new Panel();
             radioButton12 = new RadioButton();
@@ -676,13 +676,13 @@
             MasaKapat.ToolTipText = "Masayı kapatır";
             MasaKapat.UseColumnTextForButtonValue = true;
             // 
-            // comboBox1
+            // comboBosMasalar
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(1176, 134);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(156, 28);
-            comboBox1.TabIndex = 9;
+            comboBosMasalar.FormattingEnabled = true;
+            comboBosMasalar.Location = new Point(1176, 134);
+            comboBosMasalar.Name = "comboBosMasalar";
+            comboBosMasalar.Size = new Size(156, 28);
+            comboBosMasalar.TabIndex = 9;
             // 
             // label1
             // 
@@ -722,6 +722,7 @@
             radioButton12.TabStop = true;
             radioButton12.Text = "200";
             radioButton12.UseVisualStyleBackColor = true;
+            radioButton12.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton11
             // 
@@ -733,6 +734,7 @@
             radioButton11.TabStop = true;
             radioButton11.Text = "180";
             radioButton11.UseVisualStyleBackColor = true;
+            radioButton11.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton10
             // 
@@ -744,6 +746,7 @@
             radioButton10.TabStop = true;
             radioButton10.Text = "150";
             radioButton10.UseVisualStyleBackColor = true;
+            radioButton10.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton9
             // 
@@ -755,6 +758,7 @@
             radioButton9.TabStop = true;
             radioButton9.Text = "135";
             radioButton9.UseVisualStyleBackColor = true;
+            radioButton9.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton8
             // 
@@ -766,6 +770,7 @@
             radioButton8.TabStop = true;
             radioButton8.Text = "120";
             radioButton8.UseVisualStyleBackColor = true;
+            radioButton8.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton7
             // 
@@ -777,6 +782,7 @@
             radioButton7.TabStop = true;
             radioButton7.Text = "105";
             radioButton7.UseVisualStyleBackColor = true;
+            radioButton7.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton6
             // 
@@ -788,6 +794,7 @@
             radioButton6.TabStop = true;
             radioButton6.Text = "90";
             radioButton6.UseVisualStyleBackColor = true;
+            radioButton6.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton5
             // 
@@ -799,6 +806,7 @@
             radioButton5.TabStop = true;
             radioButton5.Text = "75";
             radioButton5.UseVisualStyleBackColor = true;
+            radioButton5.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton4
             // 
@@ -810,6 +818,7 @@
             radioButton4.TabStop = true;
             radioButton4.Text = "60";
             radioButton4.UseVisualStyleBackColor = true;
+            radioButton4.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton3
             // 
@@ -821,6 +830,7 @@
             radioButton3.TabStop = true;
             radioButton3.Text = "45";
             radioButton3.UseVisualStyleBackColor = true;
+            radioButton3.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButton2
             // 
@@ -832,6 +842,7 @@
             radioButton2.TabStop = true;
             radioButton2.Text = "30";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // radioButtonSuresiz
             // 
@@ -843,6 +854,7 @@
             radioButtonSuresiz.TabStop = true;
             radioButtonSuresiz.Text = "Suresiz";
             radioButtonSuresiz.UseVisualStyleBackColor = true;
+            radioButtonSuresiz.CheckedChanged += RadioButtonSeciliyeGore;
             // 
             // btnMasaAc
             // 
@@ -850,7 +862,7 @@
             btnMasaAc.Name = "btnMasaAc";
             btnMasaAc.Size = new Size(151, 128);
             btnMasaAc.TabIndex = 12;
-            btnMasaAc.Text = "Masa Ac";
+            btnMasaAc.Text = "Masa Aç";
             btnMasaAc.UseVisualStyleBackColor = true;
             btnMasaAc.Click += button21_Click;
             // 
@@ -862,7 +874,7 @@
             Controls.Add(btnMasaAc);
             Controls.Add(panel1);
             Controls.Add(label1);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBosMasalar);
             Controls.Add(dataGridView1);
             Controls.Add(listView1);
             Controls.Add(button20);
@@ -922,7 +934,7 @@
         private Button button20;
         private ListView listView1;
         private DataGridView dataGridView1;
-        private ComboBox comboBox1;
+        private ComboBox comboBosMasalar;
         private Label label1;
         private Panel panel1;
         private RadioButton radioButton8;
